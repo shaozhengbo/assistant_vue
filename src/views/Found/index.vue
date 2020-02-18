@@ -1,5 +1,6 @@
 <template>
-  <div>发现</div>
+  <div id="found">发现
+  </div>
 </template>
 
 <script>
@@ -8,4 +9,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#found {
+  height: 100%;
+  width: 100%;
+}
+</style>

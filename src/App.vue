@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view />
+    <mt-header fixed :title="title"></mt-header>
+    <keep-alive>
+      <router-view />
+    </keep-alive>
     <mt-tabbar v-model="selected">
       <mt-tab-item id="index">
         <img slot="icon" src="./assets/tabbar_index.png" />
@@ -20,12 +23,20 @@ export default {
   name: 'App',
   data () {
     return {
-      selected: 'index'
+      selected: 'index',
+      title: '首页'
     }
   },
   watch: {
     selected: function (newSelected, oldSelected) {
       this.$router.push({ path: newSelected })
+      if (newSelected === 'index') {
+        this.title = '首页'
+      } else if (newSelected === 'found') {
+        this.title = '发现'
+      } else if (newSelected === 'me') {
+        this.title = '我的'
+      }
     }
   }
 }
