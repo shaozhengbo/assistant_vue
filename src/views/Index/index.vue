@@ -1,4 +1,9 @@
-<template><div id="index">Index</div></template>
+<template>
+  <div id="index">
+    <div>欢迎进入assistant_vue</div>
+    <div>dev by shao zheng bo from IBM</div>
+  </div>
+</template>
 
 <script>
 export default {}
