@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/views/Index'
 import Found from '@/views/Found'
 import Me from '@/views/Me'
+import Overtime from '@/views/Overtime'
 
 Vue.use(Router)
 
@@ -10,18 +11,23 @@ export default new Router({
   routes: [
     {
       path: '/index',
-      name: 'Index',
+      name: 'index',
       component: Index
     },
     {
       path: '/found',
-      name: 'Found',
+      name: 'found',
       component: Found
     },
     {
       path: '/me',
-      name: 'Me',
+      name: 'me',
       component: Me
+    },
+    {
+      path: '/overtime',
+      name: 'overtime',
+      component: Overtime
     },
     {
       path: '/*',

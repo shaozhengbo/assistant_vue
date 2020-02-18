@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <mt-header fixed :title="title"></mt-header>
-    <keep-alive>
-      <router-view />
-    </keep-alive>
-    <mt-tabbar v-model="selected">
+    <router-view />
+    <mt-tabbar v-model="selected" v-show="!inChildPage">
       <mt-tab-item id="index">
         <img slot="icon" src="./assets/tabbar_index.png" />
       </mt-tab-item>
@@ -24,20 +22,28 @@ export default {
   data () {
     return {
       selected: 'index',
-      title: '首页'
+      title: '首页',
+      inChildPage: false
     }
   },
   watch: {
     selected: function (newSelected, oldSelected) {
-      this.$router.push({ path: newSelected })
-      if (newSelected === 'index') {
-        this.title = '首页'
-      } else if (newSelected === 'found') {
-        this.title = '发现'
-      } else if (newSelected === 'me') {
-        this.title = '我的'
+      if (newSelected !== oldSelected || this.this.$router.currentRoute.path.indexOf(newSelected) === -1) {
+        this.$router.push({ name: newSelected }).catch(err => {
+          console.log(err)
+        })
+        if (newSelected === 'index') {
+          this.title = '首页'
+        } else if (newSelected === 'found') {
+          this.title = '发现'
+        } else if (newSelected === 'me') {
+          this.title = '我的'
+        }
       }
     }
+  },
+  mounted () {
+    this.selected = this.$router.currentRoute.name
   }
 }
 </script>
