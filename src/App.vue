@@ -1,13 +1,33 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <router-view />
+    <mt-tabbar v-model="selected">
+      <mt-tab-item id="index">
+        <img slot="icon" src="./assets/tabbar_index.png" />
+      </mt-tab-item>
+      <mt-tab-item id="found">
+        <img slot="icon" src="./assets/tabbar_found.png" />
+      </mt-tab-item>
+      <mt-tab-item id="me">
+        <img slot="icon" src="./assets/tabbar_me.png" />
+      </mt-tab-item>
+    </mt-tabbar>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      selected: 'index'
+    }
+  },
+  watch: {
+    selected: function (newSelected, oldSelected) {
+      this.$router.push({ path: newSelected })
+    }
+  }
 }
 </script>
 
@@ -19,5 +39,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  width: 100%;
+  height: 100%;
 }
 </style>
