@@ -28,7 +28,7 @@ export default {
   },
   watch: {
     selected: function (newSelected, oldSelected) {
-      if (newSelected !== oldSelected || this.this.$router.currentRoute.path.indexOf(newSelected) === -1) {
+      if (newSelected !== oldSelected) {
         this.$router.push({ name: newSelected }).catch(err => {
           console.log(err)
         })
