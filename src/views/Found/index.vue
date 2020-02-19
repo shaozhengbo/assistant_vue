@@ -1,7 +1,7 @@
 <template>
   <div id="found">
-    <el-row :gutter="10" style="margin-left: 25px;">
-      <el-col :span="7" style="margin-bottom: 10px;">
+    <el-row>
+      <el-col :span="7">
         <router-link :to="{name: 'overtime'}" tag="a">
           <el-card :body-style="{ padding: '10px' }">
             <img src="../../assets/found_overtime.png" class="image" width="50rem" height="50rem" />
@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 #found {
-  height: 100%;
+  margin-top: 60px;
   width: 100%;
 }
 </style>

@@ -116,6 +116,7 @@ export default {
 
 <style scoped>
 #overtime {
+  margin-top: 60px;
   height: 100%;
   width: 100%;
 }
