@@ -1,5 +1,9 @@
 #!/bin/sh
 
+docker stop assistant_vue
+
+docker rm assistant_vue
+
 docker image rm assistant_vue
 
 npm run build
